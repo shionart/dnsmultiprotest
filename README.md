@@ -58,8 +58,17 @@
    ```
 <!-- USAGE EXAMPLES -->
 ## Usage
-1. Register username and password
-<img src="misc/register.png">
+0. Use the Collections & Environment Variables      
+   <a href="https://github.com/shionart/dnsmultiprotest/tree/main/postman"><strong>See Here</strong></a>
+1. Register username and password     
+   <a href="https://github.com/shionart/dnsmultiprotest/blob/main/misc/Register.png"><strong>See Here</strong></a>
+2. authenticate username and password     
+   <a href="https://github.com/shionart/dnsmultiprotest/blob/main/misc/Authenticate.png"><strong>See Here</strong></a>
+3. load token that saved on Authentication -> Bearer     
+   <a href="https://github.com/shionart/dnsmultiprotest/blob/main/misc/load%20token%20dari%20environment.png"><strong>See Here</strong></a>
+4. Hit the Job List and Detail API     
+   <a href="https://github.com/shionart/dnsmultiprotest/blob/main/misc/get%20joblist.png"><strong>See Here</strong></a>
+   <a href="https://github.com/shionart/dnsmultiprotest/blob/main/misc/get%20jobdetail.png"><strong>And Here</strong></a>
 
 
 
@@ -68,18 +77,6 @@
 ## Contact
 
 M Al Amin -  malamin239@gmail.com
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
-
-
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
