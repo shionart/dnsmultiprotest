@@ -32,86 +32,15 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/shionart/flask_ourfarm">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">Springboot - JWT</h3>
 
   <p align="center">
     Mini project of Spring Boot which uses JWT for authentication requests to the API.
     <br />
-    <a href="https://github.com/shionart/flask_ourfarm"><strong>POSTMAN File here</strong></a>
+    <a href="https://github.com/shionart/dnsmultiprotest/tree/main/postman"><strong>POSTMAN File here</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/shionart/flask_ourfarm">View Demo</a>
-    ·
-    <a href="https://github.com/shionart/flask_ourfarm/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/shionart/flask_ourfarm/issues">Request Feature</a>
   </p>
 </p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`shionart`, `flask_ourfarm`, `muirenoleander`, `malamin239@gmail.com`, `Ourfarm`, `A mini project to monitor and control a model-scale farm, using Wemos or ESP8266 as Arduino Module and Flask as Web Service. This project is a part of Smart Home Project which include another project such as  : Smart Light Control Sys, Android App Controller and Primary Web(deployed)`
-
-
-### Built With
-
-* []()
-* []()
-* []()
-
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
@@ -127,11 +56,11 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    mvn spring-boot:run
    ```
-
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
+1. Register username and password
+<img src="misc/register.png">
+
 
 
 
