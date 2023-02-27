@@ -1,0 +1,15 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/javatest?useSSL=false&serverTimezone=UTC
+    username: root
+    password: dragonica025
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      format_sql: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+SECRET_KEY: "ec88cb4d4d15c143fdd11a6e2d8f85e6c7fc91b0443c5cf5e50ebd9c2a6ebdfc"
