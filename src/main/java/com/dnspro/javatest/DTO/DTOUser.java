@@ -12,5 +12,4 @@ import lombok.NoArgsConstructor;
 public class DTOUser {
     private String username;
     private String password;
-
 }

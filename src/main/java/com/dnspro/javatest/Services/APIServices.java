@@ -1,13 +1,12 @@
 package com.dnspro.javatest.Services;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+// import java.io.BufferedReader;
+// import java.io.InputStream;
+// import java.io.InputStreamReader;
+// import java.net.HttpURLConnection;
+// import java.net.URL;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -18,6 +17,8 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class APIServices {
+
+    private String urlApi="http://dev3.dansmultipro.co.id/api/recruitment/positions";
 
 
     public List<JobResponse> getRequestJobList() {
@@ -49,7 +50,7 @@ public class APIServices {
         }
          */
         
-        String url2 = "http://dev3.dansmultipro.co.id/api/recruitment/positions.json"; // URL endpoint yang akan dipanggil
+        String url2 = urlApi+".json"; // URL endpoint yang akan dipanggil
         WebClient webClient = WebClient.create();
         List<JobResponse> test = webClient.get()
                 .uri(url2)
@@ -60,7 +61,7 @@ public class APIServices {
     }
 
     public JobResponse getRequestJobDetail(String id) {
-        String url2 = "http://dev3.dansmultipro.co.id/api/recruitment/positions/"+id; // URL endpoint yang akan dipanggil
+        String url2 = urlApi+"/"+id; // URL endpoint yang akan dipanggil
         WebClient webClient = WebClient.create();
         JobResponse test = webClient.get()
                 .uri(url2)

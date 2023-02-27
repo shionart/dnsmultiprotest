@@ -32,27 +32,43 @@ public class AuthServices {
                     .password(passwordEncoder.encode(dtoUser.getPassword()))
                     .role(Role.USER)
                     .build();
+        String msg="SUCCESS";
+        String tokenjwt="";
         try {
-            userRepository.save(user);
+            if (userRepository.existsByUsername(user.getUsername())) {
+                msg = "USER ALREADY EXISTS";
+            }else {
+                userRepository.save(user);
+                tokenjwt = jwtService.generateJWTToken(new HashMap<>(), user);
+            }
         } catch (Exception e) {
-            throw e;
+            msg=e.getCause().getMessage();
+            e.printStackTrace();
+            // throw e;
         }
-        String tokenjwt = jwtService.generateJWTToken(new HashMap<>(), user);
         return AuthResponse.builder()
         .token(tokenjwt)
+        .message(msg)
         .build();
     }
 
     public AuthResponse authenticate(DTOUser dtoUser){
-     authenticationManager.authenticate(
+        authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
                 dtoUser.getUsername(), 
                 dtoUser.getPassword())
         );
-        User user = userRepository.findByUsername(dtoUser.getUsername()).orElseThrow();
-        String tokenjwt = jwtService.generateJWTToken(new HashMap<>(), user);
+        String msg="SUCCESS";
+        String tokenjwt ="";
+        User user = userRepository.findByUsername(dtoUser.getUsername()).orElse(null);
+        if (user==null) {
+            msg="USER NOT FOUND";
+        }else{
+            tokenjwt = jwtService.generateJWTToken(new HashMap<>(), user);
+        }
         return AuthResponse.builder()
             .token(tokenjwt)
+            .message(msg)
             .build();    
     }
 }

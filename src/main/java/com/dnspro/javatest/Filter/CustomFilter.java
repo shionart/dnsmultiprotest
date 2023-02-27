@@ -32,23 +32,23 @@ public class CustomFilter extends OncePerRequestFilter{
         @NonNull HttpServletResponse response, 
         @NonNull FilterChain filterChain)
         throws ServletException, IOException {
-            System.out.println("Custom Filter dimulai");
+            System.out.println("Custom Filter JWT started...");
             final String authHeader = request.getHeader("Authorization");
-            System.out.println(authHeader);
             final String jwtToken;
             final String username;
             if (authHeader== null || !authHeader.startsWith("Bearer") ) { //tanpa token
-                System.out.println("Ga masuk custokm filter");
+                System.out.println("No Bearer authentication header");
                 filterChain.doFilter(request, response);
                 return;
             }
             jwtToken = authHeader.substring(7);
-            System.out.println("Jwt token: " + jwtToken);
+            System.out.println("Jwt token: " + jwtToken); //TODO delete pindah env
             username = jwtService.extractUsername(jwtToken); //Baca token  
-            if (username!=null && SecurityContextHolder.getContext().getAuthentication()==null) { //kalo belum ada token either salah/create baru
-                System.out.println("Token & Autentikasi non exist, creating one...");
+            if (username!=null && SecurityContextHolder.getContext().getAuthentication()==null) { 
+                System.out.println("Username filled & not authenticated, checking Token...");
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
                 if (jwtService.isTokenValid(jwtToken, userDetails)) {
+                    System.out.println("Token & Username valid , authenticating...");
                     UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails, 
                         null,
@@ -59,7 +59,7 @@ public class CustomFilter extends OncePerRequestFilter{
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }  
-            System.out.println("custom filter is done, continuing...");
+            System.out.println("Custom Filter JWT is done, continuing...");
             filterChain.doFilter(request, response);
     }
 
