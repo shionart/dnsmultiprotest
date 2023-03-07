@@ -1,11 +1,14 @@
 package com.dnspro.javatest.Services;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 // import java.io.BufferedReader;
 // import java.io.InputStream;
 // import java.io.InputStreamReader;
 // import java.net.HttpURLConnection;
 // import java.net.URL;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
@@ -57,7 +60,37 @@ public class APIServices {
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<JobResponse>>() {})
                 .block();
-        return test;
+        List<JobResponse> groupedByLocation= new ArrayList<>();
+        /**
+         * - baca location
+         * - create temp pool per new unique location
+         *      - create pool baru kalo location baru
+         *      - insert to pool untuk location existing
+         * - concat list?
+         */
+        Set<String> tempIndexLocation = new HashSet<>();
+        Set<String> tempIndexId = new HashSet<>();
+        for (JobResponse jb : test) {
+            tempIndexLocation.add(jb.getLocation());
+            System.out.println(jb.getLocation());
+            System.out.println(jb.getId());
+        }
+        // brute force find and concat
+        for (String location : tempIndexLocation) {
+            System.out.println("Ambil job detail per location: " + location);
+            for (JobResponse jb : test) {
+                // if ( !tempIndexId.contains(jb.getId()) ) {
+                    System.out.println(jb.getId()+" Location is : "+jb.getLocation());
+                    if (jb.getLocation().equalsIgnoreCase(location)) {
+                        System.out.println("location is same, get the job detail");
+                        groupedByLocation.add(jb);
+                        // tempIndexId.add(jb.getId());
+                        System.out.println(jb.getId());
+                    }
+                // }
+            }
+        }
+        return groupedByLocation;
     }
 
     public JobResponse getRequestJobDetail(String id) {
